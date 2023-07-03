@@ -75,7 +75,6 @@ router.post('/update', async (req, res) => {
     const city = req.body.city;
     const state = req.body.state;
     const zip = req.body.zip;
-
     try {
         const updateDetails = await Registration.findOneAndUpdate({ Email: email, Password: password },
         { "$set": { "AddressLine1": addressline1, "City": city, "State": state, "Zip": zip } })
