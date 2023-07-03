@@ -78,7 +78,7 @@ router.post('/update', async (req, res) => {
     try {
         const updateDetails = await Registration.findOneAndUpdate({ Email: email, Password: password },
         { "$set": { "AddressLine1": addressline1, "City": city, "State": state, "Zip": zip } })
-        res.status(201).send(updateDetails)
+        res.status(201).send(updateDetails) 
     } catch (e) {
          res.status(500).send(e)
      }
