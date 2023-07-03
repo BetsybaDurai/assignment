@@ -68,7 +68,7 @@ router.post('/login', async (req, res) => {
 })
 
 router.post('/update', async (req, res) => {
-    // console.log(req.body)
+    // console.log(req.body) 
     const email = req.body.email; //didn't change to object or string
     const password = req.body.password;
     const addressline1 = req.body.addressline1;

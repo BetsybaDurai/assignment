@@ -16,7 +16,7 @@ const auth = async (req, res, next) => {
             return res.status(401).send({ message: "Unauthorised" })
         }
         else {
-            req.email = decoded.email;
+            req.email = decoded.email; 
             next()
         }
     })
