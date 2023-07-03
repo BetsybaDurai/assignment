@@ -68,18 +68,17 @@ router.post('/login', async (req, res) => {
 })
 
 router.post('/update', async (req, res) => {
-    // console.log(req.body)
+    // console.log(req.body) 
     const email = req.body.email; //didn't change to object or string
     const password = req.body.password;
     const addressline1 = req.body.addressline1;
     const city = req.body.city;
     const state = req.body.state;
     const zip = req.body.zip;
-
     try {
         const updateDetails = await Registration.findOneAndUpdate({ Email: email, Password: password },
         { "$set": { "AddressLine1": addressline1, "City": city, "State": state, "Zip": zip } })
-        res.status(201).send(updateDetails)
+        res.status(201).send(updateDetails) 
     } catch (e) {
          res.status(500).send(e)
      }

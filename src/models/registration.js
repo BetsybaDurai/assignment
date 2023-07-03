@@ -14,7 +14,7 @@ const registrationSchema=new mongoose.Schema({
         trim:true
     },
     Email: {
-        type: String, // Booleans, dates ,array, binary data, object IDs and more
+        type: String,
         required: true,
         trim: true,
         lowercase:true,

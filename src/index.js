@@ -18,7 +18,6 @@ app.use((req, res,next) => {
 
 app.use(express.json())
 app.use(RegisterRouter)
-
 app.listen(port, () => {
     console.log('Server is up on port '+port)
 })
