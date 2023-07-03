@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
-const Registration = mongoose.model('Registration', {
+
+
+const registrationSchema=new mongoose.Schema({
     FirstName: {
         type: String, // Booleans, dates ,array, binary data, object IDs and more
         required: true,
@@ -55,4 +57,23 @@ const Registration = mongoose.model('Registration', {
     }
 })
 
+registrationSchema.pre('save', async function (next) {
+    const register = this
+    console.log('just before saving')
+    next()
+})
+
+const Registration = mongoose.model('Registration', registrationSchema)
+
 module.exports = Registration;
+
+// const registrationSchema = yup.object({
+//     FirstName: yup.string().required().trim(),
+//     LastName: yup.string().required().trim(),
+//     Email: yup.string().required().trim().lowercase().email(),
+//     Password: yup.string().required().min(7).trim().lowercase().includes(),
+//     AddressLine1: yup.string().required(),
+//     City: yup.string().required().trim(),
+//     State: yup.string().required().trim(),
+//     Zip: yup.number().required().trim()
+// });
